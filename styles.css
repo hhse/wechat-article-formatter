@@ -1,0 +1,1044 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 主要内容区域 */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* 编辑区域 */
+.editor-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.editor-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-header h3 {
+    font-size: 1.2rem;
+}
+
+.editor-tools {
+    display: flex;
+    gap: 10px;
+}
+
+.tool-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tool-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.editor-container {
+    padding: 20px;
+    min-height: 500px;
+}
+
+.editor {
+    width: 100%;
+    min-height: 460px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    resize: none;
+}
+
+.editor:empty:before {
+    content: attr(placeholder);
+    color: #999;
+    font-style: italic;
+}
+
+/* 预览区域 */
+.preview-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.preview-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-header h3 {
+    font-size: 1.2rem;
+}
+
+.preview-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.preview-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.preview-container {
+    padding: 20px;
+    min-height: 500px;
+    background: #f8f9fa;
+}
+
+.preview-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-height: 440px;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 样式选择器 */
+.style-selector {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.style-selector h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.style-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.style-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.style-card.active {
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.style-preview {
+    padding: 20px;
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 不同风格的预览样式 */
+.default-style {
+    background: white;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.default-style h4 {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.default-style p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.elegant-style {
+    background: #fefefe;
+    color: #2c3e50;
+    font-family: 'Times New Roman', 'SimSun', serif;
+    text-align: justify;
+    line-height: 2.2;
+    border: 1px solid #e8e8e8;
+    padding: 15px;
+}
+
+.elegant-style h4 {
+    font-family: 'Georgia', 'SimSun', serif;
+    font-weight: normal;
+    text-align: center;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.elegant-style p {
+    margin: 0;
+    font-size: 11px;
+    text-indent: 1em;
+    letter-spacing: 0.3px;
+}
+
+.modern-style {
+    background: white;
+    color: #2c3e50;
+    font-family: 'Helvetica Neue', 'PingFang SC', sans-serif;
+    text-align: left;
+    line-height: 1.6;
+    padding: 15px;
+}
+
+.modern-style h4 {
+    font-weight: 700;
+    color: #1a1a1a;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.modern-style p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.classic-style {
+    background: #fefefe;
+    color: #1a1a1a;
+    font-family: 'SimSun', 'Times New Roman', serif;
+    text-align: justify;
+    line-height: 2.0;
+    border: 2px solid #8b4513;
+    padding: 15px;
+}
+
+.classic-style h4 {
+    font-weight: bold;
+    text-align: center;
+    color: #8b4513;
+    border-bottom: 1px solid #8b4513;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.classic-style p {
+    margin: 0;
+    font-size: 11px;
+    text-indent: 1em;
+}
+
+.colorful-style {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+    font-family: 'Arial', 'PingFang SC', sans-serif;
+    text-align: center;
+    line-height: 1.8;
+    padding: 15px;
+}
+
+.colorful-style h4 {
+    font-weight: 700;
+    color: #e74c3c;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+}
+
+.colorful-style p {
+    margin: 0;
+    font-size: 12px;
+    background: rgba(255,255,255,0.7);
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.minimal-style {
+    background: white;
+    color: #333;
+    font-family: 'SF Pro Display', -apple-system, 'PingFang SC', sans-serif;
+    text-align: left;
+    line-height: 1.7;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.minimal-style h4 {
+    font-weight: 500;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+}
+
+.minimal-style p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 设置面板 */
+.settings-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.settings-panel h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.setting-item label {
+    font-weight: 600;
+    color: #555;
+}
+
+.setting-item select {
+    padding: 10px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.setting-item select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* 预览内容的不同排版风格 */
+.preview-content.default-theme {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 默认风格标题 */
+.preview-content.default-theme h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 30px 0 20px 0;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.preview-content.default-theme h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.preview-content.default-theme h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 25px 0 15px 0;
+    color: #34495e;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+.preview-content.default-theme h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 20px 0 12px 0;
+    color: #2c3e50;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.preview-content.default-theme p {
+    margin: 15px 0;
+    text-indent: 0;
+}
+
+.preview-content.default-theme blockquote {
+    border-left: 4px solid #667eea;
+    padding: 15px 20px;
+    margin: 20px 0;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+.preview-content.elegant-theme {
+    font-family: 'Times New Roman', 'SimSun', serif;
+    color: #2c3e50;
+    line-height: 2.2;
+    text-align: justify;
+    padding: 25px;
+    background: #fefefe;
+    border: 1px solid #e8e8e8;
+}
+
+/* 优雅风格标题 */
+.preview-content.elegant-theme h1 {
+    font-family: 'Georgia', 'SimSun', serif;
+    font-size: 2.4rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 35px 0 25px 0;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.preview-content.elegant-theme h1::before,
+.preview-content.elegant-theme h1::after {
+    content: '❦';
+    font-size: 1.5rem;
+    color: #8b4513;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preview-content.elegant-theme h1::before {
+    left: 20px;
+}
+
+.preview-content.elegant-theme h1::after {
+    right: 20px;
+}
+
+.preview-content.elegant-theme h2 {
+    font-family: 'Georgia', 'SimSun', serif;
+    font-size: 1.9rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 30px 0 20px 0;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 15px 0;
+}
+
+.preview-content.elegant-theme h3 {
+    font-family: 'Georgia', 'SimSun', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 25px 0 15px 0;
+    color: #34495e;
+    letter-spacing: 0.5px;
+    font-style: italic;
+}
+
+.preview-content.elegant-theme p {
+    margin: 18px 0;
+    text-indent: 2em;
+    letter-spacing: 0.5px;
+}
+
+.preview-content.elegant-theme blockquote {
+    border: 1px solid #d4d4d4;
+    padding: 20px;
+    margin: 25px 0;
+    background: #fafafa;
+    text-align: center;
+    font-style: italic;
+    position: relative;
+}
+
+.preview-content.elegant-theme blockquote::before {
+    content: '"';
+    font-size: 3em;
+    color: #ccc;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.preview-content.modern-theme {
+    font-family: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    text-align: left;
+    padding: 20px;
+    background: white;
+}
+
+/* 现代风格标题 */
+.preview-content.modern-theme h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin: 25px 0 15px 0;
+    color: #1a1a1a;
+    border-bottom: 4px solid #667eea;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.preview-content.modern-theme h1::before {
+    content: '#';
+    color: #667eea;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.preview-content.modern-theme h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 22px 0 12px 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.preview-content.modern-theme h2::before {
+    content: '##';
+    color: #667eea;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.preview-content.modern-theme h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 18px 0 10px 0;
+    color: #34495e;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-left: 3px solid #667eea;
+    border-radius: 0 4px 4px 0;
+}
+
+.preview-content.modern-theme p {
+    margin: 12px 0;
+    text-indent: 0;
+}
+
+.preview-content.modern-theme blockquote {
+    border-left: 4px solid #667eea;
+    padding: 15px 20px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0 8px 8px 0;
+}
+
+.preview-content.classic-theme {
+    font-family: 'SimSun', 'Times New Roman', serif;
+    color: #1a1a1a;
+    line-height: 2.0;
+    text-align: justify;
+    padding: 20px;
+    background: #fefefe;
+    border: 2px solid #8b4513;
+}
+
+/* 经典风格标题 */
+.preview-content.classic-theme h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0 20px 0;
+    color: #8b4513;
+    border: 3px double #8b4513;
+    padding: 20px;
+    background: #fdf5e6;
+    position: relative;
+}
+
+.preview-content.classic-theme h1::before,
+.preview-content.classic-theme h1::after {
+    content: '◆';
+    color: #8b4513;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preview-content.classic-theme h1::before {
+    left: 10px;
+}
+
+.preview-content.classic-theme h1::after {
+    right: 10px;
+}
+
+.preview-content.classic-theme h2 {
+    font-size: 1.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 0 15px 0;
+    color: #8b4513;
+    border-bottom: 2px solid #8b4513;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.preview-content.classic-theme h2::before,
+.preview-content.classic-theme h2::after {
+    content: '◇';
+    color: #8b4513;
+    margin: 0 10px;
+}
+
+.preview-content.classic-theme h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 12px 0;
+    color: #a0522d;
+    background: #fdf5e6;
+    padding: 10px 15px;
+    border: 1px solid #8b4513;
+    border-radius: 5px;
+}
+
+.preview-content.classic-theme p {
+    margin: 16px 0;
+    text-indent: 2em;
+}
+
+.preview-content.classic-theme blockquote {
+    border: 2px solid #8b4513;
+    padding: 20px;
+    margin: 20px 0;
+    background: #fdf5e6;
+    text-align: center;
+    font-style: italic;
+    position: relative;
+}
+
+.preview-content.classic-theme blockquote::before,
+.preview-content.classic-theme blockquote::after {
+    content: '"';
+    font-size: 2em;
+    color: #8b4513;
+    position: absolute;
+}
+
+.preview-content.classic-theme blockquote::before {
+    top: -5px;
+    left: 10px;
+}
+
+.preview-content.classic-theme blockquote::after {
+    bottom: -15px;
+    right: 10px;
+}
+
+.preview-content.colorful-theme {
+    font-family: 'Arial', 'PingFang SC', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+/* 多彩风格标题 */
+.preview-content.colorful-theme h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 25px 0 20px 0;
+    color: #e74c3c;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, #e74c3c, #f39c12, #e67e22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.preview-content.colorful-theme h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #e74c3c, #f39c12);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.preview-content.colorful-theme h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 22px 0 15px 0;
+    color: #e67e22;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.8);
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.preview-content.colorful-theme h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 18px 0 12px 0;
+    color: #f39c12;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    padding: 8px 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 2px solid rgba(243, 156, 18, 0.3);
+}
+
+.preview-content.colorful-theme p {
+    margin: 15px 0;
+    text-indent: 0;
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.preview-content.colorful-theme blockquote {
+    border: 3px solid #e74c3c;
+    padding: 20px;
+    margin: 20px 0;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    font-style: italic;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.preview-content.minimal-theme {
+    font-family: 'SF Pro Display', -apple-system, 'PingFang SC', sans-serif;
+    color: #333;
+    line-height: 1.7;
+    text-align: left;
+    padding: 30px;
+    background: white;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* 极简风格标题 */
+.preview-content.minimal-theme h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin: 35px 0 20px 0;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    border-bottom: 1px solid #e1e5e9;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.preview-content.minimal-theme h1::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: #1a1a1a;
+}
+
+.preview-content.minimal-theme h2 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 30px 0 15px 0;
+    color: #2c3e50;
+    letter-spacing: -0.5px;
+}
+
+.preview-content.minimal-theme h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 25px 0 12px 0;
+    color: #666;
+    letter-spacing: -0.3px;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.preview-content.minimal-theme p {
+    margin: 20px 0;
+    text-indent: 0;
+    color: #666;
+}
+
+.preview-content.minimal-theme blockquote {
+    border-left: 3px solid #ddd;
+    padding: 15px 20px;
+    margin: 25px 0;
+    background: #f9f9f9;
+    font-style: normal;
+    color: #666;
+}
+
+/* 特殊排版元素 */
+.preview-content.elegant-theme ul,
+.preview-content.elegant-theme ol {
+    padding-left: 30px;
+    margin: 20px 0;
+}
+
+.preview-content.elegant-theme li {
+    margin: 8px 0;
+    line-height: 1.8;
+}
+
+.preview-content.modern-theme ul,
+.preview-content.modern-theme ol {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.preview-content.modern-theme li {
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+.preview-content.classic-theme ul,
+.preview-content.classic-theme ol {
+    padding-left: 25px;
+    margin: 18px 0;
+}
+
+.preview-content.classic-theme li {
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+.preview-content.colorful-theme ul,
+.preview-content.colorful-theme ol {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.preview-content.colorful-theme li {
+    margin: 8px 0;
+    line-height: 1.7;
+    background: rgba(255,255,255,0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: -10px;
+}
+
+.preview-content.minimal-theme ul,
+.preview-content.minimal-theme ol {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.preview-content.minimal-theme li {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .style-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .settings-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .editor-header,
+    .preview-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .editor-tools,
+    .preview-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .style-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .style-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .preview-content {
+        padding: 20px;
+        margin: 0;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.style-card,
+.editor-section,
+.preview-section,
+.style-selector,
+.settings-panel {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+} 
